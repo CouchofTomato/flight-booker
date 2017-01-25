@@ -26,11 +26,13 @@ airport_codes.each do |code, name|
   Airport.create(code: code, name: name)
 end
 
+airports = Airport.all
+
 4.times do #4 flights a day
   day = 1
   21.times do #3 weekss worth of flights
-    (1..10).each do |departure|
-      (1..10).each do |destination|
+    airports.all.each do |departure|
+      airports.all.each do |destination|
         duration = "#{rand(1..12)}:#{rand(0..59)}:00"
         date = Faker::Time.between((DateTime.now + day), (DateTime.now + day)) 
         if destination != departure

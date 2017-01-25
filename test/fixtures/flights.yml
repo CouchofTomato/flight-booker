@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departing: one
+  arriving: one
+  flight_date: 2017-01-25 21:07:30
+  flight_duration: 1.5
+
+two:
+  departing: two
+  arriving: two
+  flight_date: 2017-01-25 21:07:30
+  flight_duration: 1.5

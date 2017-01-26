@@ -1,0 +1,24 @@
+<h1>Bookings</h1>
+<h3>Flight details</h3>
+<p>Departing: <%= @flight.departing.name %></p>
+<p>Arriving: <%= @flight.arriving.name %></p>
+<p>Flight date: <%= @flight.flight_date %></p>
+<p>Flight Duration: <%= @flight.flight_duration %></p>
+
+<h3>Passenger Information</h3>
+<%= form_for @booking do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <% @passenger.each do |passenger| %>
+      <%= f.fields_for passenger, index: passenger.id do |p| %>
+      <div>
+        <%= p.label :name %>
+        <%= p.text_field :name %>
+      </div>
+    <% end %>
+  <% end %>
+  <div>
+    <%= f.hidden_field "flight", value: @flight %>
+    <%= f.submit "Fly Me To The Moon!" %>
+  </div>
+<% end %>

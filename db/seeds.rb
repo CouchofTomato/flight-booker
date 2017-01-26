@@ -9,22 +9,17 @@
 Airport.delete_all
 Flight.delete_all
 
-airport_codes = [
-  [["LHR"], ["London Heathrow"]],
-  [["JFK"], ["John Kennedy New York"]],
-  [["DMK"], ["Dong Muang Airport Bangkok"]],
-  [["MLB"], ["Orlando Melbourne Airport"]],
-  [["PEK"], ["Beijing Capital International"]],
-  [["HND"], ["Haneda Airport Tokyo"]],
-  [["LAX"], ["Los Angeles International"]],
-  [["DXB"], ["Dubai International Airport"]],
-  [["AMS"], ["Amsterdam Airport"]],
-  [["IST"], ["Istanbul International Airport"]]
-]
+Airport.create!(name: "London Heathrow", code: "LHR")
+Airport.create!(name: "John Kennedy New York", code: "JFK")
+Airport.create!(name: "Dong Muang Airport Bangkok", code: "DMK")
+Airport.create!(name: "Orlando Melbourne Airport", code: "MLB")
+Airport.create!(name: "Beijing Capital International", code: "PEK")
+Airport.create!(name: "Haneda Airport Tokyo", code: "HND")
+Airport.create!(name: "Los Angeles International", code: "LAX")
+Airport.create!(name: "Dubai International Airport", code: "DXB")
+Airport.create!(name: "Amsterdam Airport", code: "AMS")
+Airport.create!(name: "Istanbul International Airport", code: "IST")
 
-airport_codes.each do |code, name|
-  Airport.create(code: code, name: name)
-end
 
 airports = Airport.all
 

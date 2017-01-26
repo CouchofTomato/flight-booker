@@ -1,0 +1,37 @@
+<h1>Flight Finder</h1>
+<%= form_tag('/flights', method: :get) do %>
+  Departing
+  <%= select_tag(:departing_id, options_for_select(@airport_options)) %>
+  Arriving
+  <%= select_tag(:arriving_id, options_for_select(@airport_options)) %>
+  Date
+  <%= select_tag(:flight_date, options_for_select(@dates)) %>
+  People
+  <%= select_tag(:number, options_for_select(@numbers)) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @flights %>
+  <%= form_tag('bookings/new', method: :get) do %>
+    <%= hidden_field_tag(:people, params[:number]) %>
+    <table>
+      <th></th>
+      <th>Departing</th>
+      <th>Arriving</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Flight Duration</th>
+      <%= collection_radio_buttons(:flight, :flight_id, @flights, :id, :format_date) do |b| %>
+        <tr>
+          <td><%= b.radio_button %></td>
+          <td><%= b.object.departing.name %></td>
+          <td><%= b.object.arriving.name %></td>
+          <td><%= b.object.format_date %></td>
+          <td><%= b.object.format_time %></td>
+          <td><%= b.object.flight_duration %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= submit_tag("Let's Go!") %>
+  <% end %>
+<% end %>

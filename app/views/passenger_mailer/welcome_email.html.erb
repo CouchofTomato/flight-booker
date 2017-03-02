@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+<h4>Thank you for your booking</h4>
+<h5>Details as follows:</h5>
+
+<table>
+    <th>Departing</th>
+    <th>Arriving</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Flight Duration</th>
+        <tr>
+          <td><%= @flight.departing.name %></td>
+          <td><%= @flight.arriving.name %></td>
+          <td><%= @flight.format_date %></td>
+          <td><%= @flight.format_time %></td>
+          <td><%= @flight.flight_duration %></td>
+        </tr>
+</table>
+
+<table>
+	<th>Booking Number</th>
+	<th>Email</th>
+	<th>Name</th>
+	<% @passengers.each do |passenger| %>
+		<tr>
+			<td><%= @booking.id %></td>
+			<td><%= @booking.email %></td>
+			<td><%= passenger.name %></td>
+		</tr>
+	<% end %>
+</table>
+  </body>
+</html>
+

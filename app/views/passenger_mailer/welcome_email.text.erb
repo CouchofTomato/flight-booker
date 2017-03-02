@@ -1,0 +1,15 @@
+Thank you for booking with Austin's Paradise Travel
+===================================================
+ 
+
+Departing: <%= @flight.departing.name %>
+Arriving: <%= @flight.arriving.name %>
+Date: <%= @flight.format_date %>
+Time: <%= @flight.format_time %>
+Duration: <%= @flight.flight_duration %>
+
+<% @passengers.each do |passenger| %>
+ID: <%= @booking.id %>
+Email: <%= @booking.email %>
+Name: <%= passenger.name %>
+<% end %>

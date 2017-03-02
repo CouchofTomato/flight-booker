@@ -12,6 +12,8 @@ class BookingsController < ApplicationController
       @booking.passengers.create(name: passenger[:name])
     end
     
+    PassengerMailer.welcome_email(@booking, @booking.passengers, @booking.flight).deliver_now
+
     redirect_to @booking
   end
 
